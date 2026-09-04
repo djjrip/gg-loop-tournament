@@ -1,0 +1,54 @@
+name: GG Loop Cloud Revenue Engine
+
+on:
+  schedule:
+    # Runs every 2 hours in the cloud
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  sweep-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Execute Cloud Scrape & Dispatch
+        run: |
+          node -e "
+          const https = require('https');
+          
+          async function sweep() {
+            console.log('Sweeping live contract feeds in cloud...');
+            https.get('https://hn.algolia.com/api/v1/search?tags=comment,story_49522897&query=contract&hitsPerPage=20', (res) => {
+              let d = '';
+              res.on('data', c => d += c);
+              res.on('end', () => {
+                const j = JSON.parse(d);
+                const count = (j.hits || []).length;
+                console.log('Discovered ' + count + ' contract hits.');
+                
+                // Dispatch alert to NTFY
+                const req = https.request({
+                  hostname: 'ntfy.sh',
+                  path: '/ggloop_revenue_pipeline_jayson',
+                  method: 'POST',
+                  headers: {
+                    'Title': 'CLOUD ENGINE PULSE (0% PC USAGE)',
+                    'Tags': 'cloud,zap',
+                    'Priority': 'default',
+                    'Content-Type': 'text/plain'
+                  }
+                });
+                req.write('Cloud Engine Sweep Complete (GitHub Actions).\\nHits Discovered: ' + count + '\\nPlatform: Live on Vercel.');
+                req.end();
+              });
+            });
+          }
+          sweep();
+          "
