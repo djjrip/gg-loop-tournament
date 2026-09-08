@@ -1,9 +1,8 @@
 name: GG Loop Cloud Revenue Engine
 
 on:
-  schedule:
-    # Runs every 2 hours in the cloud
-    - cron: '0 */2 * * *'
+  # schedule: (DISABLED - manual workflow_dispatch only)
+  #   - cron: '0 */2 * * *'
   workflow_dispatch:
 
 jobs:
