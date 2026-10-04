@@ -1,19 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --neon-green: #00ff88;
-  --neon-cyan: #00f0ff;
-  --neon-gold: #f59e0b;
+@theme {
+  --color-neon-green: #00ff88;
+  --color-neon-cyan: #00f0ff;
+  --color-neon-gold: #f59e0b;
 }
 
-@layer base {
-  body {
-    background-color: #06080d;
-    color: #f3f4f6;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
+body {
+  background-color: #06080d;
+  color: #f3f4f6;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 .cyber-grid {
@@ -50,6 +46,7 @@
 .glass-card {
   background: rgba(13, 17, 26, 0.7);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
