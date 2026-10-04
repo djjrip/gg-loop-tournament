@@ -35,6 +35,17 @@ db.exec(`
     FOREIGN KEY(player2_id) REFERENCES players(id),
     FOREIGN KEY(winner_id) REFERENCES players(id)
   );
+
+  CREATE TABLE IF NOT EXISTS payments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    stripe_session_id TEXT UNIQUE,
+    customer_email TEXT,
+    customer_name TEXT,
+    amount_total INTEGER,
+    currency TEXT,
+    status TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 export default db;
