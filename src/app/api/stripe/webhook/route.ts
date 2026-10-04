@@ -4,7 +4,13 @@ import db from "@/lib/db";
 
 export const runtime = "nodejs";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) {
+    throw new Error("STRIPE_SECRET_KEY is not configured");
+  }
+  return new Stripe(key);
+}
 
 export async function GET() {
   return NextResponse.json({
@@ -24,9 +30,10 @@ export async function POST(req: Request) {
 
   try {
     if (webhookSecret && sig) {
+      const stripe = getStripe();
       event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
     } else {
-      // In dev or until signing secret is added to Vercel env, parse JSON payload
+      // In development or when payload is forwarded directly
       event = JSON.parse(rawBody) as Stripe.Event;
     }
   } catch (err: any) {
