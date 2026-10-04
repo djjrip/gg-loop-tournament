@@ -24,9 +24,16 @@ export default function RootLayout({
         {/* Global Esports Header */}
         <header className="border-b border-white/10 sticky top-0 bg-[#06080d]/85 backdrop-blur-xl z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3.5 group">
-              <div className="relative">
-                <img src="/logo.png" alt="GG Loop" className="h-10 w-auto rounded object-contain drop-shadow-[0_0_12px_rgba(0,255,136,0.5)] transition-transform group-hover:scale-105" />
+            <Link href="/" className="flex items-center gap-3.5 group shrink-0">
+              <div className="w-10 h-10 shrink-0 relative flex items-center justify-center">
+                <img 
+                  src="/logo.svg" 
+                  alt="GG Loop" 
+                  width={40}
+                  height={40}
+                  style={{ width: '40px', height: '40px' }}
+                  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(0,255,136,0.5)] transition-transform group-hover:scale-105" 
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-xl tracking-wider text-white flex items-center gap-2">
@@ -71,7 +78,14 @@ export default function RootLayout({
         <footer className="border-t border-white/10 bg-[#040609] py-12 px-4 relative z-10 mt-20">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-400">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="GG Loop" className="h-8 w-auto opacity-80" />
+              <img 
+                src="/logo.svg" 
+                alt="GG Loop" 
+                width={32}
+                height={32}
+                style={{ width: '32px', height: '32px' }}
+                className="w-8 h-8 object-contain opacity-80" 
+              />
               <div>
                 <p className="font-bold text-white tracking-wider">GG LOOP LLC</p>
                 <p className="text-xs text-gray-500">Autonomous Tournament Infrastructure & Community Gaming</p>
