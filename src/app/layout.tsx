@@ -93,7 +93,7 @@ export default function RootLayout({
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 text-xs font-medium">
-              <a href="https://buy.stripe.com/cNi5kEgBd5C05Rlbzd1B603" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">
+              <a href="https://buy.stripe.com/14A14o84H3tSa7B5aP1B604" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">
                 ⚡ Juice the Prize Pool ($5 Stripe)
               </a>
               <a href="mailto:jquindao1@icloud.com" className="hover:text-white transition-colors">

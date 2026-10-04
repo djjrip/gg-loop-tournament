@@ -165,7 +165,7 @@ export default function Home() {
             </div>
           </div>
           <a
-            href="https://buy.stripe.com/cNi5kEgBd5C05Rlbzd1B603"
+            href="https://buy.stripe.com/14A14o84H3tSa7B5aP1B604"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-[#00f0ff] text-black font-extrabold text-sm rounded-lg tracking-wider uppercase hover:bg-cyan-300 transition-all shrink-0"

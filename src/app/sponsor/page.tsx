@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { Trophy, ShieldCheck, Zap, Users, ArrowRight, DollarSign, CheckCircle2, Star, Sparkles, Building2, Flame } from 'lucide-react';
 
 export default function SponsorPage() {
-  const stripeLink = "https://buy.stripe.com/cNi5kEgBd5C05Rlbzd1B603";
+  const stripeMember = "https://buy.stripe.com/7sY6oIckXaWk1B5av91B605"; // $29/mo Founding Member
+  const stripeTitle = "https://buy.stripe.com/14AcN64SvfcA2F932H1B606";  // $500 Event Title Sponsor
+  const stripePremier = "https://buy.stripe.com/6oUdRa5WzfcA7Zt32H1B607"; // $1,500 Premier LAN Activation
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 space-y-20">
@@ -59,7 +61,7 @@ export default function SponsorPage() {
 
           <div className="pt-4">
             <a
-              href={stripeLink}
+              href={stripeMember}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 px-6 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-center tracking-wider uppercase transition-all block border border-white/15 active:scale-95 text-sm"
@@ -106,7 +108,7 @@ export default function SponsorPage() {
 
           <div className="pt-4">
             <a
-              href={stripeLink}
+              href={stripeTitle}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 px-6 rounded-xl bg-[#00ff88] hover:bg-[#34d399] text-black font-black text-center tracking-wider uppercase transition-all block shadow-[0_0_20px_rgba(0,255,136,0.4)] active:scale-95 text-sm"
@@ -150,7 +152,7 @@ export default function SponsorPage() {
 
           <div className="pt-4">
             <a
-              href={stripeLink}
+              href={stripePremier}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 px-6 rounded-xl bg-[#00f0ff] hover:bg-cyan-300 text-black font-black text-center tracking-wider uppercase transition-all block shadow-[0_0_20px_rgba(0,240,255,0.3)] active:scale-95 text-sm"

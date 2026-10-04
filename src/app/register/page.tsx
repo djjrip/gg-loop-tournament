@@ -54,7 +54,7 @@ export default function Register() {
           </p>
           <div className="pt-2">
             <a 
-              href="https://buy.stripe.com/cNi5kEgBd5C05Rlbzd1B603" 
+              href="https://buy.stripe.com/14A14o84H3tSa7B5aP1B604" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#00f0ff] hover:bg-cyan-300 text-black font-extrabold rounded-lg tracking-wider uppercase transition-all shadow-lg"
