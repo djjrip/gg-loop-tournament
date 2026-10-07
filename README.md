@@ -1,31 +1,64 @@
-# GG Loop Tournament OS
+# GG Loop Tournament OS (`gg-loop-tournament`)
 
-Live DFW esports tournament OS — automated brackets, anti-cheat telemetry, and skill-verified payouts for Valorant and CS2.
+**Production Competitive Gaming, B2B Studio Telemetry Ingest, & Cryptographic Payout Settlement Engine**
 
-**Platform Demo:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
+* **Live Production Platform:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
+* **Companion Rust Telemetry SDK:** [`djjrip/anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk)
+* **Architect:** [Jayson Quindao](https://djjrip.github.io) ([1-Page Resume PDF](https://djjrip.github.io/resume.pdf))
 
-## 💎 Support the Vision
-- 🥇 **[Stripe $29/mo Founding Member](https://buy.stripe.com/4gMcN7bnS8Qhbr57l60Fi00)**
-- 🏆 **[Stripe $500 Sponsor](https://buy.stripe.com/dRm5kF77CfeFdzd0WI0Fi02)**
-- 🏟️ **[Stripe $1,500 LAN](https://buy.stripe.com/aFa28t1Ni9Ulan1eNy0Fi01)**
+---
 
-## 🚀 Quick Start
+## ⚡ Architecture Overview
 
-First, run the development server:
+GG Loop Tournament OS is a full-stack competitive esports and B2B anti-cheat telemetry platform built with **Next.js (App Router), TypeScript, PostgreSQL (Neon Serverless), Drizzle ORM, and Stripe Connect**.
 
-`ash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-`
+```mermaid
+flowchart LR
+    subgraph ClientEdge["Game Client / Desktop Edge"]
+        SDK["Rust anti-cheat-sdk\n(Win32 K32GetModuleFileNameExW + SHA-256)"]
+    end
+    subgraph IngestAPI["Next.js Edge & API Layer"]
+        ING["POST /api/v1/ingest\n(B2B Studio Telemetry Batch API)"]
+        FLG["GET /api/v1/flags\n(Anomaly & Macro Triage Feed)"]
+        WHK["POST /api/webhooks/stripe\n(Idempotent HMAC Ledger Guard)"]
+    end
+    subgraph Storage["PostgreSQL (Neon Serverless)"]
+        UNN["Single-Roundtrip unnest()\nBulk Telemetry Insert"]
+        LDG["ACID Double-Entry\nEscrow & Payout Ledger"]
+    end
+    SDK -->|HMAC-SHA256 Signed Batch| ING
+    ING -->|O(1) Roundtrip| UNN
+    ING -->|CPS > 25 or Variance < 2ms| FLG
+    WHK --> LDG
+```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Production Subsystems
+
+1. **High-Throughput B2B Studio Telemetry Ingest (`app/api/v1/ingest/route.ts`):**
+   * Accepts cryptographically signed telemetry batches from desktop game clients running [`anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk).
+   * Executes single-roundtrip PostgreSQL `unnest()` bulk array inserts to eliminate N+1 query overhead during high-frequency match ticks.
+   * Performs inline deterministic behavioral anomaly evaluation (flagging impossible click/input frequencies `>25 CPS`, robotic macro timing variance `<2.0ms`, and unauthorized ring-3 memory handles).
+
+2. **Real-Time Incident & Flag Triage API (`app/api/v1/flags/route.ts`):**
+   * Exposes studio-scoped security flags (`CRITICAL`, `HIGH`, `MEDIUM`) with SHA-256 process hashes, player session metadata, and automated tournament bracket hold triggers.
+
+3. **Idempotent Financial Settlement & Escrow Ledger:**
+   * Enforces strict Stripe webhook signature verification (`stripe-signature`), replay-attack suppression, and double-entry ACID ledger accounting for automated tournament prize distribution.
+
+---
 
 ## 🛠️ Tech Stack
-![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+* **Runtime & Framework:** TypeScript, Next.js 14+ (App Router), Node.js
+* **Database & ORM:** PostgreSQL, Drizzle ORM, Raw parameterized `unnest()` batch SQL
+* **Desktop & Anti-Cheat Edge:** Rust (`anti-cheat-sdk`), Win32 Process Enumeration API, SHA-256 / HMAC-SHA256
+* **Payments & Settlement:** Stripe Checkout, Stripe Webhooks, Double-Entry Ledger
+
+## 🚀 Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` to inspect the tournament console or query `/api/v1/ingest` and `/api/v1/flags`.
