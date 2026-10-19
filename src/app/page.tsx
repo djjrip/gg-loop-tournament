@@ -72,8 +72,8 @@ export default function Home() {
               <span className="text-xs font-mono text-gray-400 uppercase tracking-widest flex items-center gap-1.5 mb-1">
                 <MapPin className="w-4 h-4 text-rose-500" /> Host Venue
               </span>
-              <div className="text-2xl font-black text-white">Electric Starship</div>
-              <span className="text-xs text-gray-400">Haltom City, DFW</span>
+              <div className="text-2xl font-black text-white">Venue not confirmed</div>
+              <span className="text-xs text-gray-400">DFW pilot area</span>
             </div>
           </div>
         </div>
