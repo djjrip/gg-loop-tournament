@@ -281,63 +281,41 @@ export default function Home() {
       </section>
 
       {/* 5. EVENT TIMELINE SCHEDULE */}
-      <section id="format" className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center space-y-4 mb-16">
+      <section id="format" className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="text-center space-y-4 mb-10">
           <div className="inline-block px-3 py-1 rounded bg-white/10 border border-white/20 text-gray-300 font-mono text-xs font-bold tracking-widest uppercase">
-            OPERATIONS SCHEDULE
+            PROPOSED PILOT FLOW
           </div>
           <h2 className="text-4xl sm:text-6xl font-black tracking-tight uppercase">
-            EVENT <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-[#00ff88]">TIMELINE</span>
+            HOW A <span className="text-[#00ff88]">VERIFIED SESSION</span> WORKS
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Zero delays. Streamlined check-in, immediate bracket seeding, and rapid match turnarounds.
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            This is the intended flow, not a scheduled event. The venue, date, rules, and reward funding must be confirmed first.
           </p>
         </div>
-
         <div className="max-w-3xl mx-auto space-y-4">
-          <div className="p-6 rounded-2xl glass-card flex items-start gap-6">
-            <div className="text-lg font-mono font-black text-[#00ff88] shrink-0 pt-0.5">6:00 PM</div>
-            <div>
-              <h4 className="font-bold text-lg text-white">Doors Open & Freeplay Casuals</h4>
-              <p className="text-sm text-gray-400 mt-1">Pay your $12 venue fee at the arcade register. Warm up on arcade cabinets and casual setups.</p>
-            </div>
+          <div className="p-5 rounded-2xl glass-card">
+            <h4 className="font-bold text-lg text-[#00ff88]">1. Check in</h4>
+            <p className="text-sm text-gray-300 mt-1">The organizer confirms the player's event identity and records the chosen game. Collect only what the pilot actually needs.</p>
           </div>
-
-          <div className="p-6 rounded-2xl glass-card flex items-start gap-6">
-            <div className="text-lg font-mono font-black text-[#00f0ff] shrink-0 pt-0.5">7:00 PM</div>
-            <div>
-              <h4 className="font-bold text-lg text-white">Check-in Closes & Bracket Seed Lock</h4>
-              <p className="text-sm text-gray-400 mt-1">Final participant check-in. GG Loop TournamentOS publishes the double-elimination bracket matrix.</p>
-            </div>
+          <div className="p-5 rounded-2xl glass-card">
+            <h4 className="font-bold text-lg text-[#00f0ff]">2. Play and record the result</h4>
+            <p className="text-sm text-gray-300 mt-1">For the first arcade pilot, a match result is entered by the organizer or supported by an agreed evidence source. No unsupported claim of automatic cheat detection is made.</p>
           </div>
-
-          <div className="p-6 rounded-2xl glass-card flex items-start gap-6">
-            <div className="text-lg font-mono font-black text-white shrink-0 pt-0.5">7:30 PM</div>
-            <div>
-              <h4 className="font-bold text-lg text-white">Wave 1 Bracket Matches</h4>
-              <p className="text-sm text-gray-400 mt-1">Winners and Losers rounds commence across all designated cabinets and tournament displays.</p>
-            </div>
+          <div className="p-5 rounded-2xl glass-card">
+            <h4 className="font-bold text-lg text-white">3. Verify and award points once</h4>
+            <p className="text-sm text-gray-300 mt-1">An authorized organizer reviews the result. The same match cannot create duplicate points. Disputed results are held for review.</p>
           </div>
-
-          <div className="p-6 rounded-2xl glass-card flex items-start gap-6">
-            <div className="text-lg font-mono font-black text-[#f59e0b] shrink-0 pt-0.5">9:00 PM</div>
-            <div>
-              <h4 className="font-bold text-lg text-white">Top 4 & Grand Finals</h4>
-              <p className="text-sm text-gray-400 mt-1">Best of 5 championship series. Main screen broadcast in the arcade.</p>
-            </div>
-          </div>
-
-          <div className="p-6 rounded-2xl glass-card flex items-start gap-6">
-            <div className="text-lg font-mono font-black text-[#00ff88] shrink-0 pt-0.5">9:45 PM</div>
-            <div>
-              <h4 className="font-bold text-lg text-white">Awards & Grocery Card Payouts</h4>
-              <p className="text-sm text-gray-400 mt-1">Presentation of $150, $75, and $40 grocery subsidies and champion trophies.</p>
-            </div>
+          <div className="p-5 rounded-2xl glass-card">
+            <h4 className="font-bold text-lg text-amber-300">4. Redeem only against funded rewards</h4>
+            <p className="text-sm text-gray-300 mt-1">A sponsor or venue must commit the reward budget before any reward is advertised. No unfunded grocery cards or prize debt.</p>
           </div>
         </div>
       </section>
 
       {/* 6. VENUE PARTNER SHOWCASE */}
+
+
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="glass-card border border-white/10 rounded-3xl p-8 sm:p-12 grid lg:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
