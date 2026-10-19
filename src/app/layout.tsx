@@ -6,8 +6,8 @@ import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'GG LOOP — Tournament Operating System | Gaming for Groceries',
-  description: 'The premier local esports & fighting game tournament platform. Compete for real-world grocery subsidies and verified community prize pools.',
+  title: 'GG LOOP — Gaming for Groceries Pilot Preview',
+  description: 'A pilot preview for GG LOOP: recording verified gaming participation and awarding points, with sponsor-funded rewards only when confirmed.',
 }
 
 export default function RootLayout({
@@ -46,7 +46,7 @@ export default function RootLayout({
 
             <nav className="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
               <Link href="/" className="text-gray-300 hover:text-[#00ff88] transition-colors">Event Overview</Link>
-              <Link href="#prizes" className="text-gray-300 hover:text-[#00ff88] transition-colors">Grocery Prizes</Link>
+              <Link href="#prizes" className="text-gray-300 hover:text-[#00ff88] transition-colors">Points & Rewards</Link>
               <Link href="/bracket" className="text-gray-300 hover:text-[#00ff88] transition-colors flex items-center gap-1.5">
                 Live Brackets
                 <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
@@ -57,7 +57,7 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <div className="hidden lg:flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300">
                 <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-ping" />
-                <span>HALTOM CITY, TX</span>
+                <span>DFW PILOT PREVIEW</span>
               </div>
               <Link 
                 href="/register" 
