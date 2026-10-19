@@ -35,141 +35,26 @@ export default async function BracketPage() {
         </div>
       </div>
 
-      {/* Visual Tournament Bracket Matrix (Interactive Tree) */}
-      <div className="glass-card border border-white/10 rounded-3xl p-6 sm:p-10 space-y-8">
-        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-          <div className="flex items-center gap-3">
-            <Gamepad2 className="w-6 h-6 text-[#00ff88]" />
-            <span className="text-xl font-black tracking-wider uppercase text-white">Featured Discipline: SFIII 3rd Strike</span>
-          </div>
-          <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/30">
-            ● WAVE 1 IN PROGRESS
-          </span>
+      {/* Live bracket: no invented competitors or results */}
+      <section className="glass-card border border-white/10 rounded-3xl p-6 sm:p-10 space-y-5">
+        <div className="inline-block px-3 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold tracking-widest uppercase">
+          No confirmed event in progress
         </div>
-
-        {/* 3-Column Visual Tree */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center pt-2">
-          {/* Column 1: Quarterfinals */}
-          <div className="space-y-6">
-            <div className="text-xs font-mono text-gray-400 uppercase tracking-widest flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#00ff88]" /> Winners Quarterfinals
-            </div>
-
-            {/* Match 1 */}
-            <div className="p-4 rounded-xl bg-black/60 border border-white/10 space-y-2 hover:border-[#00ff88]/50 transition-colors">
-              <div className="flex justify-between items-center text-sm font-bold text-white">
-                <span className="flex items-center gap-2"><span className="text-xs text-gray-500">#1</span> Daigo_DFW</span>
-                <span className="px-2 py-0.5 rounded bg-[#00ff88]/20 text-[#00ff88] font-mono text-xs">2</span>
-              </div>
-              <div className="flex justify-between items-center text-sm text-gray-400">
-                <span className="flex items-center gap-2"><span className="text-xs text-gray-500">#8</span> ArcadePro99</span>
-                <span className="font-mono text-xs">0</span>
-              </div>
-              <div className="pt-2 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-500">
-                <span>CABINET #1</span>
-                <span className="text-emerald-400 font-bold">MATCH FINAL</span>
-              </div>
-            </div>
-
-            {/* Match 2 */}
-            <div className="p-4 rounded-xl bg-black/60 border border-white/10 space-y-2 hover:border-[#00ff88]/50 transition-colors">
-              <div className="flex justify-between items-center text-sm font-bold text-white">
-                <span className="flex items-center gap-2"><span className="text-xs text-gray-500">#4</span> Justin_W</span>
-                <span className="px-2 py-0.5 rounded bg-[#00ff88]/20 text-[#00ff88] font-mono text-xs">2</span>
-              </div>
-              <div className="flex justify-between items-center text-sm text-gray-400">
-                <span className="flex items-center gap-2"><span className="text-xs text-gray-500">#5</span> Vortex_FGC</span>
-                <span className="font-mono text-xs">1</span>
-              </div>
-              <div className="pt-2 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-500">
-                <span>CABINET #2</span>
-                <span className="text-emerald-400 font-bold">MATCH FINAL</span>
-              </div>
-            </div>
-
-            {/* Match 3 */}
-            <div className="p-4 rounded-xl bg-black/60 border border-white/10 space-y-2 hover:border-[#00ff88]/50 transition-colors">
-              <div className="flex justify-between items-center text-sm font-bold text-white">
-                <span className="flex items-center gap-2"><span className="text-xs text-gray-500">#2</span> KenMaster_TX</span>
-                <span className="px-2 py-0.5 rounded bg-[#00ff88]/20 text-[#00ff88] font-mono text-xs">2</span>
-              </div>
-              <div className="flex justify-between items-center text-sm text-gray-400">
-                <span className="flex items-center gap-2"><span className="text-xs text-gray-500">#7</span> ChunLiFan</span>
-                <span className="font-mono text-xs">0</span>
-              </div>
-              <div className="pt-2 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-500">
-                <span>CABINET #3</span>
-                <span className="text-emerald-400 font-bold">MATCH FINAL</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Column 2: Semifinals */}
-          <div className="space-y-6 lg:mt-8">
-            <div className="text-xs font-mono text-gray-400 uppercase tracking-widest flex items-center gap-2">
-              <Flame className="w-4 h-4 text-[#00f0ff]" /> Winners Semifinals
-            </div>
-
-            <div className="p-5 rounded-xl bg-black/70 border-2 border-[#00f0ff]/40 space-y-3 glow-cyan">
-              <div className="flex justify-between items-center text-base font-bold text-white">
-                <span>#1 Daigo_DFW</span>
-                <span className="font-mono text-[#00ff88] text-lg font-black">1</span>
-              </div>
-              <div className="flex justify-between items-center text-base font-bold text-white">
-                <span>#4 Justin_W</span>
-                <span className="font-mono text-[#00f0ff] text-lg font-black">1</span>
-              </div>
-              <div className="pt-2 border-t border-white/10 flex justify-between items-center text-[10px] font-mono text-[#00f0ff]">
-                <span>● STREAMED ON CAB #2</span>
-                <span className="font-bold animate-pulse">GAME 3 IN PROGRESS</span>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-black/40 border border-white/10 space-y-3">
-              <div className="flex justify-between items-center text-sm font-bold text-white">
-                <span>#2 KenMaster_TX</span>
-                <span className="font-mono text-gray-500">-</span>
-              </div>
-              <div className="flex justify-between items-center text-sm text-gray-400">
-                <span>#3 SemiFinalist_B</span>
-                <span className="font-mono text-gray-500">-</span>
-              </div>
-              <div className="pt-2 border-t border-white/10 text-[10px] font-mono text-gray-500">
-                WAITING ON MATCH 4
-              </div>
-            </div>
-          </div>
-
-          {/* Column 3: Championship Finals */}
-          <div className="space-y-6 lg:mt-16">
-            <div className="text-xs font-mono text-amber-400 uppercase tracking-widest flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-[#f59e0b]" /> Championship Grand Finals
-            </div>
-
-            <div className="p-6 rounded-2xl bg-black/90 border-2 border-[#f59e0b]/60 space-y-4 glow-gold">
-              <div className="flex justify-between items-center">
-                <span className="text-xs font-mono uppercase text-[#f59e0b] font-bold">BEST OF 5 ROUNDS</span>
-                <Trophy className="w-6 h-6 text-[#f59e0b]" />
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center text-lg font-black text-white">
-                  <span>Winners Bracket Champ</span>
-                  <span className="font-mono text-gray-500">-</span>
-                </div>
-                <div className="flex justify-between items-center text-lg font-black text-white">
-                  <span>Losers Bracket Champ</span>
-                  <span className="font-mono text-gray-500">-</span>
-                </div>
-              </div>
-              <div className="pt-4 border-t border-white/10 text-xs font-mono text-gray-300">
-                Payout: <span className="text-[#00ff88] font-bold">$150.00 Grocery Card</span> + Trophy
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <h2 className="text-2xl sm:text-3xl font-black text-white">The bracket will appear here after a pilot is confirmed.</h2>
+        <p className="text-gray-300">
+          The example scores and player names previously shown on this page were demo content, not verified match results. They have been removed so the page cannot be mistaken for a live event.
+        </p>
+        <p className="text-sm text-gray-400">
+          Before the bracket opens, GG LOOP needs a confirmed venue and date, reliable registration storage, published match rules, and a funded reward plan if rewards will be advertised.
+        </p>
+        <Link href="/" className="inline-block px-6 py-3 rounded-xl bg-white/10 text-white font-bold hover:bg-white/20">
+          Read pilot status
+        </Link>
+      </section>
 
       {/* Roster & Registered Competitors */}
+
+
       <div className="space-y-6">
         <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight flex items-center gap-3">
           <span>Registered Competitors ({players.length})</span>
@@ -194,7 +79,7 @@ export default async function BracketPage() {
                   <span className="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">{p.game}</span>
                 </div>
                 <div className="text-lg font-black text-white">{p.gamertag}</div>
-                <div className="text-xs text-gray-400">{p.name}</div>
+                <div className="text-xs text-gray-400">Registered pilot participant</div>
               </div>
             ))}
           </div>

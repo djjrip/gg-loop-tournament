@@ -26,16 +26,24 @@ export async function POST(req: Request) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   const rawBody = await req.text();
 
-  let event: Stripe.Event;
+  // Fail closed: never accept unsigned JSON as a payment notification.
+  if (!webhookSecret) {
+    return NextResponse.json(
+      { error: "Webhook verification is not configured" },
+      { status: 503 }
+    );
+  }
+  if (!sig) {
+    return NextResponse.json(
+      { error: "Missing Stripe signature" },
+      { status: 400 }
+    );
+  }
 
+  let event: Stripe.Event;
   try {
-    if (webhookSecret && sig) {
-      const stripe = getStripe();
-      event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
-    } else {
-      // In development or when payload is forwarded directly
-      event = JSON.parse(rawBody) as Stripe.Event;
-    }
+    const stripe = getStripe();
+    event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
   } catch (err: any) {
     console.error("[STRIPE_WEBHOOK_ERROR] Signature verification failed:", err.message);
     return NextResponse.json(
@@ -63,6 +71,12 @@ export async function POST(req: Request) {
       );
     } catch (dbErr: any) {
       console.error("[STRIPE_DB_ERROR]", dbErr.message);
+      // Return a retryable failure instead of acknowledging a payment event
+      // that was not durably recorded.
+      return NextResponse.json(
+        { error: "Payment event could not be recorded; retry required" },
+        { status: 500 }
+      );
     }
   }
 

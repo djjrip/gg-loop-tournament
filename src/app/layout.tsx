@@ -6,8 +6,8 @@ import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'GG LOOP — Tournament Operating System | Gaming for Groceries',
-  description: 'The premier local esports & fighting game tournament platform. Compete for real-world grocery subsidies and verified community prize pools.',
+  title: 'GG LOOP — Gaming for Groceries Pilot Preview',
+  description: 'A pilot preview for GG LOOP: recording verified gaming participation and awarding points, with sponsor-funded rewards only when confirmed.',
 }
 
 export default function RootLayout({
@@ -40,13 +40,13 @@ export default function RootLayout({
                   GG <span className="text-[#00ff88] text-glow-green">LOOP</span>
                   <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/30">OS</span>
                 </span>
-                <span className="text-[11px] font-mono text-gray-400 tracking-tight">Gaming for Groceries @ Electric Starship</span>
+                <span className="text-[11px] font-mono text-gray-400 tracking-tight">Gaming for Groceries — pilot preview</span>
               </div>
             </Link>
 
             <nav className="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
               <Link href="/" className="text-gray-300 hover:text-[#00ff88] transition-colors">Event Overview</Link>
-              <Link href="#prizes" className="text-gray-300 hover:text-[#00ff88] transition-colors">Grocery Prizes</Link>
+              <Link href="#prizes" className="text-gray-300 hover:text-[#00ff88] transition-colors">Points & Rewards</Link>
               <Link href="/bracket" className="text-gray-300 hover:text-[#00ff88] transition-colors flex items-center gap-1.5">
                 Live Brackets
                 <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
@@ -57,7 +57,7 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <div className="hidden lg:flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300">
                 <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-ping" />
-                <span>HALTOM CITY, TX</span>
+                <span>DFW PILOT PREVIEW</span>
               </div>
               <Link 
                 href="/register" 
@@ -88,14 +88,11 @@ export default function RootLayout({
               />
               <div>
                 <p className="font-bold text-white tracking-wider">GG LOOP LLC</p>
-                <p className="text-xs text-gray-500">Autonomous Tournament Infrastructure & Community Gaming</p>
+                <p className="text-xs text-gray-500">Gaming for Groceries pilot preview</p>
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 text-xs font-medium">
-              <a href="https://buy.stripe.com/14A14o84H3tSa7B5aP1B604" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">
-                ⚡ Juice the Prize Pool ($5 Stripe)
-              </a>
               <a href="mailto:jquindao1@icloud.com" className="hover:text-white transition-colors">
                 Partner / Sponsor Inquiry
               </a>
@@ -105,7 +102,7 @@ export default function RootLayout({
             </div>
 
             <p className="text-xs text-gray-600">
-              &copy; {new Date().getFullYear()} GG Loop LLC. In Partnership with Electric Starship Arcade.
+              &copy; {new Date().getFullYear()} GG Loop LLC.
             </p>
           </div>
         </footer>

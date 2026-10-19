@@ -17,6 +17,8 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+      - name: Verify Gaming for Groceries points rules
+        run: npm run test:trust-ledger
       - name: Build Project
         run: npm run build
         env:
