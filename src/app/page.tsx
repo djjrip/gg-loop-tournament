@@ -9,7 +9,7 @@ export default function Home() {
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-[#00ff88]/40 text-[#00ff88] text-xs font-mono font-bold tracking-widest uppercase glow-green">
           <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-ping" />
-          PILOT TOURNAMENT // 32-SLOT CAP OPEN
+          PILOT PREVIEW // REWARD FUNDING NOT YET CONFIRMED
         </div>
 
         {/* Hero Title */}
@@ -21,7 +21,7 @@ export default function Home() {
         </h1>
 
         <p className="max-w-3xl mx-auto text-lg sm:text-2xl text-gray-300 font-normal leading-relaxed">
-          The zero-friction tournament operating system. Compete in DFW’s premier fighting game brackets at <span className="text-white font-bold">Electric Starship Arcade</span> for real-world grocery subsidies and community glory.
+          A practical system for organizing gaming events, recording verified match results, and awarding participation points. Everyday rewards come later—only when funding, venue terms, and verification rules are confirmed.
         </p>
 
         {/* Primary CTAs */}
@@ -48,8 +48,8 @@ export default function Home() {
               <span className="text-xs font-mono text-gray-400 uppercase tracking-widest flex items-center gap-1.5 mb-1">
                 <Trophy className="w-4 h-4 text-[#f59e0b]" /> Prize Pool
               </span>
-              <div className="text-2xl font-black text-white">$265+ Guaranteed</div>
-              <span className="text-xs text-[#00ff88]">Real Grocery Subsidies</span>
+              <div className="text-2xl font-black text-white">Not yet funded</div>
+              <span className="text-xs text-[#00ff88]">Rewards paused</span>
             </div>
 
             <div className="glass-card p-5 rounded-xl border border-white/10 text-left">
@@ -80,102 +80,40 @@ export default function Home() {
       </section>
 
       {/* 2. GAMING FOR GROCERIES PRIZE POOL SECTION */}
-      <section id="prizes" className="max-w-7xl mx-auto px-4 sm:px-6 scroll-mt-24">
-        <div className="text-center space-y-4 mb-16">
-          <div className="inline-block px-3 py-1 rounded bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[#f59e0b] font-mono text-xs font-bold tracking-widest uppercase">
-            REAL-WORLD VALUE EXCHANGE
+      <section id="prizes" className="max-w-5xl mx-auto px-4 sm:px-6 scroll-mt-24">
+        <div className="text-center space-y-5 mb-10">
+          <div className="inline-block px-3 py-1 rounded bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] font-mono text-xs font-bold tracking-widest uppercase">
+            REWARDS REQUIRE VERIFIED FUNDING
           </div>
           <h2 className="text-4xl sm:text-6xl font-black tracking-tight uppercase">
-            THE GROCERY SUBSIDY <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">PRIZE POOL</span>
+            PLAY. <span className="text-[#00ff88]">VERIFY.</span> EARN.
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
-            Winners walk away with fully loaded grocery gift cards (HEB, Central Market, or Target) — subsidizing living costs while competing at the highest local tier.
+          <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg">
+            Gaming for Groceries is designed to turn verified participation into points and, when a sponsor has committed real funding, grocery or other everyday rewards.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* 1st Place */}
-          <div className="glass-card glass-card-hover p-8 rounded-2xl border-2 border-[#f59e0b]/60 relative overflow-hidden flex flex-col justify-between space-y-6 glow-gold">
-            <div className="absolute -top-12 -right-12 w-36 h-36 bg-[#f59e0b]/20 rounded-full blur-2xl pointer-events-none" />
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 rounded-full bg-[#f59e0b]/20 text-[#f59e0b] font-mono text-xs font-extrabold uppercase">
-                  1ST PLACE CHAMPION
-                </span>
-                <Trophy className="w-8 h-8 text-[#f59e0b]" />
-              </div>
-              <div className="text-5xl font-black text-white mb-2">$150.00</div>
-              <p className="text-sm text-gray-300 font-medium">Grocery Card (HEB / Central Market)</p>
+        <div className="glass-card border border-[#00f0ff]/30 rounded-2xl p-6 sm:p-8 space-y-5">
+          <h3 className="text-2xl font-black text-white">Current pilot status</h3>
+          <p className="text-gray-300">
+            No prize pool or grocery gift cards are currently promised. Reward funding, event date, venue participation, and reliable registration storage must be confirmed before a live event opens.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+              <h4 className="font-bold text-[#00ff88] mb-2">What we are building</h4>
+              <p className="text-sm text-gray-300">A record of who participated, which match or activity took place, how an organizer verified it, and which points were earned—without awarding points twice for the same result.</p>
             </div>
-            <ul className="text-xs text-gray-400 space-y-2 border-t border-white/10 pt-4">
-              <li className="flex items-center gap-2">✓ Verified Tournament Champion Trophy</li>
-              <li className="flex items-center gap-2">✓ Free All-Day Pass to Electric Starship Arcade</li>
-              <li className="flex items-center gap-2">✓ GG Loop Hall of Fame Leaderboard Placement</li>
-            </ul>
-          </div>
-
-          {/* 2nd Place */}
-          <div className="glass-card glass-card-hover p-8 rounded-2xl border border-white/20 relative overflow-hidden flex flex-col justify-between space-y-6">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 rounded-full bg-white/10 text-gray-300 font-mono text-xs font-extrabold uppercase">
-                  2ND PLACE RUNNER-UP
-                </span>
-                <Sparkles className="w-8 h-8 text-gray-300" />
-              </div>
-              <div className="text-5xl font-black text-white mb-2">$75.00</div>
-              <p className="text-sm text-gray-300 font-medium">Grocery Subsidy Gift Card</p>
-            </div>
-            <ul className="text-xs text-gray-400 space-y-2 border-t border-white/10 pt-4">
-              <li className="flex items-center gap-2">✓ Official Runner-Up Medallion</li>
-              <li className="flex items-center gap-2">✓ Arcade Concessions & Token Bundle</li>
-              <li className="flex items-center gap-2">✓ Seeded Priority for Next Circuit Event</li>
-            </ul>
-          </div>
-
-          {/* 3rd Place */}
-          <div className="glass-card glass-card-hover p-8 rounded-2xl border border-amber-700/40 relative overflow-hidden flex flex-col justify-between space-y-6">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 rounded-full bg-amber-900/20 text-amber-500 font-mono text-xs font-extrabold uppercase">
-                  3RD PLACE BRONZE
-                </span>
-                <Flame className="w-8 h-8 text-amber-600" />
-              </div>
-              <div className="text-5xl font-black text-white mb-2">$40.00</div>
-              <p className="text-sm text-gray-300 font-medium">Grocery Subsidy Gift Card</p>
-            </div>
-            <ul className="text-xs text-gray-400 space-y-2 border-t border-white/10 pt-4">
-              <li className="flex items-center gap-2">✓ Bronze Finish Placement Credit</li>
-              <li className="flex items-center gap-2">✓ Free Arcade Drink & Snack Concession</li>
-              <li className="flex items-center gap-2">✓ Circuit Points for DFW Finals</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Community Prize Juice Banner */}
-        <div className="mt-8 p-6 rounded-2xl glass-card border border-[#00f0ff]/30 flex flex-col sm:flex-row items-center justify-between gap-6 glow-cyan">
-          <div className="flex items-center gap-4">
-            <div className="p-3 bg-[#00f0ff]/20 text-[#00f0ff] rounded-xl">
-              <DollarSign className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-bold text-lg text-white">Juice the Prize Pool ($5 Add-on)</h4>
-              <p className="text-sm text-gray-400">100% of optional community booster payments go directly toward scaling the top 3 payouts.</p>
+            <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+              <h4 className="font-bold text-[#00f0ff] mb-2">What is not live yet</h4>
+              <p className="text-sm text-gray-300">Automatic cheat detection across arbitrary games, a funded grocery payout, and production-grade player-data integrations are not yet established. The first pilot uses transparent, organizer-confirmed results.</p>
             </div>
           </div>
-          <a
-            href="https://buy.stripe.com/14A14o84H3tSa7B5aP1B604"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-[#00f0ff] text-black font-extrabold text-sm rounded-lg tracking-wider uppercase hover:bg-cyan-300 transition-all shrink-0"
-          >
-            Boost Pool via Stripe
-          </a>
+          <p className="text-xs text-gray-400">Points are participation records, not cash, food benefits, or a guaranteed redemption value. Any future reward rules and funding will be published before registration opens.</p>
         </div>
       </section>
 
       {/* 3. FEATURED COMPETITIVE TITLES */}
+
+
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-block px-3 py-1 rounded bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] font-mono text-xs font-bold tracking-widest uppercase">
