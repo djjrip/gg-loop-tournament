@@ -19,6 +19,8 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Verify Gaming for Groceries points rules
         run: npm run test:trust-ledger
+      - name: Verify points-rule tests
+        run: npm run test:trust-ledger
       - name: Build Project
         run: npm run build
         env:
