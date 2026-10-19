@@ -314,47 +314,27 @@ export default function Home() {
       </section>
 
       {/* 6. VENUE PARTNER SHOWCASE */}
-
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="glass-card border border-white/10 rounded-3xl p-8 sm:p-12 grid lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6">
-            <div className="inline-block text-xs font-mono text-[#00ff88] uppercase tracking-widest">
-              OFFICIAL VENUE PARTNER
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase">ELECTRIC STARSHIP ARCADE</h2>
-            <p className="text-gray-300 leading-relaxed">
-              DFW’s home for authentic retro gaming. Over 100+ arcade cabinets and pinball machines set to freeplay with standard door admission. Featuring dedicated fighting game head-to-head candy cabs.
-            </p>
-            <div className="space-y-3 text-sm text-gray-400 font-mono">
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-rose-400" />
-                <span>5620 Denton Hwy, Haltom City, TX 76148</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-[#00f0ff]" />
-                <span>Capacity: 100+ Players & Spectators</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Store className="w-5 h-5 text-[#00ff88]" />
-                <span>$12 All-Day Freeplay Admission at Front Desk</span>
-              </div>
-            </div>
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="glass-card border border-white/10 rounded-3xl p-8 sm:p-12 space-y-5">
+          <div className="inline-block text-xs font-mono text-[#00f0ff] uppercase tracking-widest">
+            VENUE PILOT — NOT YET CONFIRMED
           </div>
-
-          <div className="p-8 rounded-2xl bg-black/60 border border-white/10 space-y-6">
-            <h4 className="font-bold text-xl text-white">Why "Gaming for Groceries"?</h4>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Most local tournaments charge steep fees that disappear into administrative pockets. GG Loop flips the model: the arcade takes 100% of door admissions, while tournament competitors battle for real groceries and meal subsidies funded by brand sponsors.
-            </p>
-            <div className="p-4 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/30 text-xs text-[#00ff88] font-mono">
-              ★ Zero administrative drag. Verified payouts. Real community value.
-            </div>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase">A REPEATABLE LOCAL EVENT</h2>
+          <p className="text-gray-300 leading-relaxed">
+            GG LOOP is exploring a venue-first pilot: the venue runs its normal event, an organizer records verified participation, and a sponsor-funded reward layer can be added once funding and terms are confirmed.
+          </p>
+          <p className="text-sm text-gray-400">
+            Prior conversations with a potential DFW venue are not a signed partnership or a confirmed event. Venue name, date, admissions, attendance, and prize details will be published only after the parties agree.
+          </p>
+          <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-sm text-gray-300">
+            No current partnership, attendance count, or guaranteed payout is claimed on this page.
           </div>
         </div>
       </section>
 
       {/* 7. FINAL CALL TO ACTION */}
+
+
       <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-8">
         <h2 className="text-4xl sm:text-7xl font-black tracking-tighter uppercase">
           READY TO <span className="text-[#00ff88] text-glow-green">PLUG IN</span>?
