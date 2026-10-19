@@ -79,7 +79,7 @@ export default async function BracketPage() {
                   <span className="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">{p.game}</span>
                 </div>
                 <div className="text-lg font-black text-white">{p.gamertag}</div>
-                <div className="text-xs text-gray-400">{p.name}</div>
+                <div className="text-xs text-gray-400">Registered pilot participant</div>
               </div>
             ))}
           </div>
