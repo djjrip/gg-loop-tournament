@@ -40,7 +40,7 @@ export default function RootLayout({
                   GG <span className="text-[#00ff88] text-glow-green">LOOP</span>
                   <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/30">OS</span>
                 </span>
-                <span className="text-[11px] font-mono text-gray-400 tracking-tight">Gaming for Groceries @ Electric Starship</span>
+                <span className="text-[11px] font-mono text-gray-400 tracking-tight">Gaming for Groceries — pilot preview</span>
               </div>
             </Link>
 
@@ -88,14 +88,11 @@ export default function RootLayout({
               />
               <div>
                 <p className="font-bold text-white tracking-wider">GG LOOP LLC</p>
-                <p className="text-xs text-gray-500">Autonomous Tournament Infrastructure & Community Gaming</p>
+                <p className="text-xs text-gray-500">Gaming for Groceries pilot preview</p>
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 text-xs font-medium">
-              <a href="https://buy.stripe.com/14A14o84H3tSa7B5aP1B604" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">
-                ⚡ Juice the Prize Pool ($5 Stripe)
-              </a>
               <a href="mailto:jquindao1@icloud.com" className="hover:text-white transition-colors">
                 Partner / Sponsor Inquiry
               </a>
@@ -105,7 +102,7 @@ export default function RootLayout({
             </div>
 
             <p className="text-xs text-gray-600">
-              &copy; {new Date().getFullYear()} GG Loop LLC. In Partnership with Electric Starship Arcade.
+              &copy; {new Date().getFullYear()} GG Loop LLC.
             </p>
           </div>
         </footer>
