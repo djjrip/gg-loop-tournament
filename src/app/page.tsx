@@ -30,7 +30,7 @@ export default function Home() {
             href="/register"
             className="w-full sm:w-auto px-10 py-5 rounded-xl bg-[#00ff88] text-black font-black text-lg tracking-wider uppercase hover:bg-[#34d399] transition-all glow-green-lg active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(0,255,136,0.4)]"
           >
-            <span>Lock In Registration</span>
+            <span>Registration Preview</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
           <Link
@@ -340,14 +340,14 @@ export default function Home() {
           READY TO <span className="text-[#00ff88] text-glow-green">PLUG IN</span>?
         </h2>
         <p className="text-lg text-gray-300 max-w-xl mx-auto">
-          Slots are capped at 32 players per title to maintain tournament pacing. Claim your spot before the bracket locks.
+          A pilot date and registration window have not been confirmed. Registration stays closed until the venue, reliable storage, and reward terms are ready.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <Link
             href="/register"
             className="px-10 py-5 rounded-xl bg-[#00ff88] text-black font-black text-lg tracking-wider uppercase hover:bg-[#34d399] transition-all glow-green-lg"
           >
-            Claim Your Spot
+            View Pilot Status
           </Link>
           <Link
             href="/bracket"
