@@ -1,64 +1,44 @@
-# GG Loop Tournament OS (`gg-loop-tournament`)
+# GG LOOP — Gaming for Groceries (Pilot Preview)
 
-**Production Competitive Gaming, B2B Studio Telemetry Ingest, & Cryptographic Payout Settlement Engine**
+GG LOOP is developing a system that connects **verified gaming participation** with points and, only after funding is confirmed, real-world rewards such as grocery cards.
 
-* **Live Production Platform:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
-* **Companion Rust Telemetry SDK:** [`djjrip/anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk)
-* **Architect:** [Jayson Quindao](https://djjrip.github.io) ([1-Page Resume PDF](https://djjrip.github.io/resume.pdf))
+This repository is a working prototype—not a live, funded tournament platform. No venue agreement, event date, audience count, reward funding, or production anti-cheat capability is claimed here.
 
----
+## Intended player loop
+1. A player checks in with a chosen gamertag.
+2. A match or activity is recorded.
+3. An approved source verifies the result.
+4. Points are awarded once for that result.
+5. Any reward is offered only when a sponsor has committed the funds or goods.
+6. The player redeems under published rules.
 
-## ⚡ Architecture Overview
+The first pilot is intentionally human-verified. Process names or file hashes do not prove that someone played fairly, and the current project does not detect cheats across arbitrary games.
 
-GG Loop Tournament OS is a full-stack competitive esports and B2B anti-cheat telemetry platform built with **Next.js (App Router), TypeScript, PostgreSQL (Neon Serverless), Drizzle ORM, and Stripe Connect**.
+## Current stack
+- Next.js App Router and TypeScript for the web app.
+- better-sqlite3 for local prototyping.
+- Stripe SDK for signature-verified webhook parsing.
+- A small JavaScript points-rule module and Node's built-in test runner.
 
-```mermaid
-flowchart LR
-    subgraph ClientEdge["Game Client / Desktop Edge"]
-        SDK["Rust anti-cheat-sdk\n(Win32 K32GetModuleFileNameExW + SHA-256)"]
-    end
-    subgraph IngestAPI["Next.js Edge & API Layer"]
-        ING["POST /api/v1/ingest\n(B2B Studio Telemetry Batch API)"]
-        FLG["GET /api/v1/flags\n(Anomaly & Macro Triage Feed)"]
-        WHK["POST /api/webhooks/stripe\n(Idempotent HMAC Ledger Guard)"]
-    end
-    subgraph Storage["PostgreSQL (Neon Serverless)"]
-        UNN["Single-Roundtrip unnest()\nBulk Telemetry Insert"]
-        LDG["ACID Double-Entry\nEscrow & Payout Ledger"]
-    end
-    SDK -->|HMAC-SHA256 Signed Batch| ING
-    ING -->|O(1) Roundtrip| UNN
-    ING -->|CPS > 25 or Variance < 2ms| FLG
-    WHK --> LDG
-```
+Older planning text described PostgreSQL, Drizzle, Stripe Connect, a double-entry payout ledger, and a production anti-cheat system. Those capabilities are **not evidenced by the current source code** and should not be treated as implemented.
 
-### Key Production Subsystems
+## Run locally
+- npm install
+- npm run dev
+- npm run test:trust-ledger
+- npm run build
 
-1. **High-Throughput B2B Studio Telemetry Ingest (`app/api/v1/ingest/route.ts`):**
-   * Accepts cryptographically signed telemetry batches from desktop game clients running [`anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk).
-   * Executes single-roundtrip PostgreSQL `unnest()` bulk array inserts to eliminate N+1 query overhead during high-frequency match ticks.
-   * Performs inline deterministic behavioral anomaly evaluation (flagging impossible click/input frequencies `>25 CPS`, robotic macro timing variance `<2.0ms`, and unauthorized ring-3 memory handles).
+The points-rule test is a unit test of business rules. It does not establish that the website has durable storage, secure organizer workflows, live game integrations, funded rewards, or production readiness.
 
-2. **Real-Time Incident & Flag Triage API (`app/api/v1/flags/route.ts`):**
-   * Exposes studio-scoped security flags (`CRITICAL`, `HIGH`, `MEDIUM`) with SHA-256 process hashes, player session metadata, and automated tournament bracket hold triggers.
+## Current readiness limits
+- The live bracket preview previously contained hardcoded example names and scores; these are demo fixtures, not real results. The pilot branch removes them.
+- The production app currently stores SQLite data under /tmp/data. A serverless temporary filesystem is not reliable long-term participant storage. Public registration is therefore paused in the pilot branch until a durable database adapter is implemented and tested.
+- The organizer portal must remain closed if ADMIN_PASSWORD is not configured.
+- Stripe webhook requests must carry a valid Stripe signature. Missing signatures/secrets are rejected; storage errors must not be acknowledged as successfully recorded.
+- No grocery reward is promised or redeemable today. Points have no cash value.
+- Venue, event date, match rules, privacy notice, disputes, and reward funding need confirmation before opening a real event.
 
-3. **Idempotent Financial Settlement & Escrow Ledger:**
-   * Enforces strict Stripe webhook signature verification (`stripe-signature`), replay-attack suppression, and double-entry ACID ledger accounting for automated tournament prize distribution.
+## Next technical milestone
+Implement one complete testable loop: persistent registration → organizer-confirmed match result → duplicate-resistant points ledger → audit record. Keep rewards separate until the sponsor-funding and redemption path has been designed and tested.
 
----
-
-## 🛠️ Tech Stack
-
-* **Runtime & Framework:** TypeScript, Next.js 14+ (App Router), Node.js
-* **Database & ORM:** PostgreSQL, Drizzle ORM, Raw parameterized `unnest()` batch SQL
-* **Desktop & Anti-Cheat Edge:** Rust (`anti-cheat-sdk`), Win32 Process Enumeration API, SHA-256 / HMAC-SHA256
-* **Payments & Settlement:** Stripe Checkout, Stripe Webhooks, Double-Entry Ledger
-
-## 🚀 Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-Open `http://localhost:3000` to inspect the tournament console or query `/api/v1/ingest` and `/api/v1/flags`.
+See docs/GAMING_FOR_GROCERIES_MVP_SPEC.md and docs/PILOT_ACCEPTANCE_TESTS.md.
