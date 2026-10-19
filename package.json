@@ -6,7 +6,8 @@
     "dev": "node node_modules/next/dist/bin/next dev",
     "build": "node node_modules/next/dist/bin/next build",
     "start": "node node_modules/next/dist/bin/next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:trust-ledger": "node --test tests/participation-ledger.test.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^13.0.3",
