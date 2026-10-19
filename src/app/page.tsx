@@ -191,96 +191,27 @@ export default function Home() {
       </section>
 
       {/* 4. INTERACTIVE LIVE BRACKET PREVIEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="glass-card border border-white/10 rounded-3xl p-8 sm:p-12 space-y-8 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-white/10 pb-8">
-            <div>
-              <div className="inline-block text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-2">
-                TOURNAMENT ENGINE PREVIEW
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight">LIVE DOUBLE-ELIMINATION MATRIX</h2>
-              <p className="text-gray-400 text-sm mt-1">Real-time match progression and dynamic seeding powered by GG Loop TournamentOS.</p>
-            </div>
-            <Link
-              href="/bracket"
-              className="px-6 py-3 rounded-lg bg-white/10 hover:bg-[#00ff88] hover:text-black font-bold text-sm tracking-wider uppercase transition-all"
-            >
-              Full Interactive Bracket →
-            </Link>
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="glass-card border border-white/10 rounded-3xl p-8 sm:p-12 space-y-6">
+          <div className="inline-block text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-2">
+            BRACKET SOFTWARE PREVIEW
           </div>
-
-          {/* Visual Bracket Preview Graphic */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-            {/* Round 1: Quarterfinals */}
-            <div className="space-y-4">
-              <span className="text-xs font-mono text-gray-400 uppercase tracking-wider block">Round 1: Quarterfinals</span>
-              <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-2">
-                <div className="flex justify-between items-center text-sm font-bold text-white">
-                  <span>#1 Daigo_DFW</span>
-                  <span className="text-[#00ff88]">2</span>
-                </div>
-                <div className="flex justify-between items-center text-sm text-gray-400">
-                  <span>#8 ArcadePro99</span>
-                  <span>0</span>
-                </div>
-                <span className="text-[10px] font-mono text-gray-500 uppercase">FINAL // 3RD STRIKE</span>
-              </div>
-
-              <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-2">
-                <div className="flex justify-between items-center text-sm font-bold text-white">
-                  <span>#4 Justin_W</span>
-                  <span className="text-[#00ff88]">2</span>
-                </div>
-                <div className="flex justify-between items-center text-sm text-gray-400">
-                  <span>#5 Vortex_FGC</span>
-                  <span>1</span>
-                </div>
-                <span className="text-[10px] font-mono text-gray-500 uppercase">FINAL // 3RD STRIKE</span>
-              </div>
-            </div>
-
-            {/* Round 2: Semifinals */}
-            <div className="space-y-4 md:mt-10">
-              <span className="text-xs font-mono text-gray-400 uppercase tracking-wider block">Winners Semifinals</span>
-              <div className="p-5 rounded-xl bg-black/60 border border-[#00ff88]/30 space-y-3 glow-green">
-                <div className="flex justify-between items-center text-sm font-bold text-white">
-                  <span>#1 Daigo_DFW</span>
-                  <span className="text-[#00ff88] font-mono">1</span>
-                </div>
-                <div className="flex justify-between items-center text-sm font-bold text-white">
-                  <span>#4 Justin_W</span>
-                  <span className="text-[#00f0ff] font-mono">1</span>
-                </div>
-                <div className="flex justify-between items-center pt-2 border-t border-white/10 text-[10px] font-mono text-[#00ff88]">
-                  <span>● LIVE ON CABINET #2</span>
-                  <span>GAME 3 DECIDER</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Round 3: Grand Finals */}
-            <div className="space-y-4 md:mt-20">
-              <span className="text-xs font-mono text-[#f59e0b] uppercase tracking-wider block">Grand Finals (BO5)</span>
-              <div className="p-6 rounded-xl bg-black/80 border-2 border-[#f59e0b]/60 space-y-3 glow-gold">
-                <div className="text-xs font-mono text-[#f59e0b] uppercase font-bold">CHAMPIONSHIP MATCH</div>
-                <div className="flex justify-between items-center text-base font-black text-white">
-                  <span>Winners Bracket Finalist</span>
-                  <span className="text-gray-600 font-mono">-</span>
-                </div>
-                <div className="flex justify-between items-center text-base font-black text-white">
-                  <span>Losers Bracket Finalist</span>
-                  <span className="text-gray-600 font-mono">-</span>
-                </div>
-                <div className="text-xs text-gray-400 pt-2 border-t border-white/10">
-                  Prize: $150 Grocery Subsidy + Trophy
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight">MATCH RESULTS THAT CAN BE CHECKED</h2>
+          <p className="text-gray-300">
+            The current app contains a bracket interface, but there is no confirmed live tournament and no verified player results to display. Sample names and scores have been removed rather than passed off as real activity.
+          </p>
+          <p className="text-sm text-gray-400">
+            The first working pilot will record organizer-confirmed match results and prevent duplicate point awards. Live game-data connections and automatic cheat detection require separate game-specific integrations and testing.
+          </p>
+          <Link href="/bracket" className="inline-block px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 font-bold text-sm text-white">
+            View current bracket status →
+          </Link>
         </div>
       </section>
 
       {/* 5. EVENT TIMELINE SCHEDULE */}
+
+
       <section id="format" className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-4 mb-10">
           <div className="inline-block px-3 py-1 rounded bg-white/10 border border-white/20 text-gray-300 font-mono text-xs font-bold tracking-widest uppercase">
