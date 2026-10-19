@@ -1,8 +1,15 @@
+import { createHmac } from 'node:crypto';
 import { getPlayers } from '../actions';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export const revalidate = 0;
+
+function getAdminSessionToken(password: string) {
+  return createHmac('sha256', password)
+    .update('gg-loop-admin-session-v1')
+    .digest('hex');
+}
 
 export default async function AdminPage() {
   const expectedPassword = process.env.ADMIN_PASSWORD;
@@ -18,7 +25,7 @@ export default async function AdminPage() {
   }
 
   const cookieStore = await cookies();
-  const isAdmin = cookieStore.get('admin_token')?.value === expectedPassword;
+  const isAdmin = cookieStore.get('admin_token')?.value === getAdminSessionToken(expectedPassword);
 
   if (!isAdmin) {
     return (
@@ -31,7 +38,7 @@ export default async function AdminPage() {
             redirect('/admin?error=invalid');
           }
           const store = await cookies();
-          store.set('admin_token', configured, {
+          store.set('admin_token', getAdminSessionToken(configured), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
