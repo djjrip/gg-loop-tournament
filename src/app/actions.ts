@@ -1,9 +1,8 @@
-'use server'
-
 import db from '../lib/db';
 import { revalidatePath } from 'next/cache';
 
 export async function registerPlayer(formData: FormData) {
+  'use server';
   const gamertag = String(formData.get('gamertag') || '').trim().slice(0, 40);
   const email = String(formData.get('email') || '').trim().slice(0, 254);
   const game = String(formData.get('game') || '').trim().slice(0, 80);
