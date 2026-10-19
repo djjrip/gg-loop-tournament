@@ -54,7 +54,17 @@ export async function POST(req: Request) {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
-    console.log("[STRIPE_PAYMENT_SUCCESS]", session.id, session.amount_total, session.customer_details?.email);
+    // Do not write a payment-success record into the hosted /tmp SQLite database.
+    // Vercel serverless temporary storage is not durable across instances or restarts.
+    // Keep this endpoint retryable until a durable database adapter is implemented.
+    if (process.env.VERCEL === "1" || process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { error: "Payment recording is paused until durable storage is configured" },
+        { status: 503 }
+      );
+    }
+
+    console.info("[STRIPE_EVENT_VERIFIED]", event.id, session.id, session.amount_total);
 
     try {
       const stmt = db.prepare(`
