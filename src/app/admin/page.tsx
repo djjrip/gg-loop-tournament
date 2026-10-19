@@ -58,7 +58,7 @@ export default async function AdminPage() {
         <form action={async () => {
           'use server';
           const store = await cookies();
-          store.delete({ name: 'admin_token', path: '/admin' });
+          store.delete('admin_token');
           redirect('/admin');
         }}>
           <button type="submit" className="text-sm text-red-400 hover:text-red-300">Sign out</button>
