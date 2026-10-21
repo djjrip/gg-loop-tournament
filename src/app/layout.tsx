@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
+import { AuthProvider } from '../context/AuthContext'
+import Navbar from '../components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'GG LOOP — Gaming for Groceries Pilot Preview',
-  description: 'A pilot preview for GG LOOP: recording verified gaming participation and awarding points, with sponsor-funded rewards only when confirmed.',
+  title: 'GG LOOP — Gaming for Groceries & Esports Tournament Platform',
+  description: 'Compete in competitive gaming tournaments, verify match results with GG Loop Anti-Cheat, and earn points redeemable for groceries and gaming gear.',
 }
 
 export default function RootLayout({
@@ -18,61 +20,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className={`${inter.className} bg-[#06080d] text-[#f3f4f6] min-h-screen flex flex-col cyber-grid relative overflow-x-hidden selection:bg-[#00ff88] selection:text-black`}>
-        {/* Ambient Top Glow */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] radial-glow pointer-events-none z-0" />
-        
-        {/* Global Esports Header */}
-        <header className="border-b border-white/10 sticky top-0 bg-[#06080d]/85 backdrop-blur-xl z-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3.5 group shrink-0">
-              <div className="w-10 h-10 shrink-0 relative flex items-center justify-center">
-                <img 
-                  src="/logo.svg" 
-                  alt="GG Loop" 
-                  width={40}
-                  height={40}
-                  style={{ width: '40px', height: '40px' }}
-                  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(0,255,136,0.5)] transition-transform group-hover:scale-105" 
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-black text-xl tracking-wider text-white flex items-center gap-2">
-                  GG <span className="text-[#00ff88] text-glow-green">LOOP</span>
-                  <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/30">OS</span>
-                </span>
-                <span className="text-[11px] font-mono text-gray-400 tracking-tight">Gaming for Groceries — pilot preview</span>
-              </div>
-            </Link>
+        <AuthProvider>
+          {/* Ambient Top Glow */}
+          <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] radial-glow pointer-events-none z-0" />
+          
+          {/* Dynamic Esports Header with Customer Auth */}
+          <Navbar />
 
-            <nav className="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
-              <Link href="/" className="text-gray-300 hover:text-[#00ff88] transition-colors">Event Overview</Link>
-              <Link href="#prizes" className="text-gray-300 hover:text-[#00ff88] transition-colors">Points & Rewards</Link>
-              <Link href="/bracket" className="text-gray-300 hover:text-[#00ff88] transition-colors flex items-center gap-1.5">
-                Live Brackets
-                <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
-              </Link>
-              <Link href="#format" className="text-gray-300 hover:text-[#00ff88] transition-colors">Format & Rules</Link>
-            </nav>
-
-            <div className="flex items-center gap-4">
-              <div className="hidden lg:flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300">
-                <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-ping" />
-                <span>DFW PILOT PREVIEW</span>
-              </div>
-              <Link 
-                href="/register" 
-                className="relative px-5 py-2.5 rounded-lg font-bold text-sm tracking-wider uppercase bg-[#00ff88] text-black hover:bg-[#34d399] transition-all glow-green active:scale-95 shadow-[0_0_20px_rgba(0,255,136,0.4)]"
-              >
-                Enter Bracket
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main className="flex-grow z-10 relative">
-          {children}
-        </main>
+          {/* Main Content */}
+          <main className="flex-grow z-10 relative">
+            {children}
+          </main>
 
         {/* Global Footer */}
         <footer className="border-t border-white/10 bg-[#040609] py-12 px-4 relative z-10 mt-20">
@@ -106,6 +64,7 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        </AuthProvider>
       </body>
     </html>
   )
