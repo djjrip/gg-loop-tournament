@@ -1,0 +1,24 @@
+# Allow all search engines and AI evaluation crawlers full access
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /.well-known/ai-agent-manifest.json
+Allow: /api/ai-seal
+
+# AI Evaluators & Screening Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://gg-loop-tournament.vercel.app/sitemap.xml

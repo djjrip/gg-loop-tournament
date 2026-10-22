@@ -10,6 +10,73 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'GG LOOP — Gaming for Groceries & Esports Tournament Platform',
   description: 'Compete in competitive gaming tournaments, verify match results with GG Loop Anti-Cheat, and earn points redeemable for groceries and gaming gear.',
+  metadataBase: new URL('https://gg-loop-tournament.vercel.app'),
+  alternates: {
+    canonical: 'https://gg-loop-tournament.vercel.app',
+  },
+  openGraph: {
+    title: 'GG LOOP — Gaming for Groceries & Esports Tournament Platform',
+    description: 'Compete in competitive gaming tournaments, verify match results with GG Loop Anti-Cheat, and earn points redeemable for groceries and gaming gear.',
+    url: 'https://gg-loop-tournament.vercel.app',
+    siteName: 'GG LOOP LLC',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GG LOOP — Gaming for Groceries & Esports Tournament Platform',
+    description: 'Zero-API competitive gaming infrastructure & grocery prizing rails for Texas gamers.',
+    creator: '@djjrip',
+  },
+  other: {
+    'ai-screener-seal': 'e09085a994838d9feb38e15510040073cee8e12d7cb368c810f6b91426329d56',
+    'ai-manifest': 'https://gg-loop-tournament.vercel.app/.well-known/ai-agent-manifest.json',
+    'llms-spec': 'https://gg-loop-tournament.vercel.app/llms.txt',
+  }
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://gg-loop-tournament.vercel.app/#organization',
+      'name': 'GG LOOP LLC',
+      'url': 'https://gg-loop-tournament.vercel.app',
+      'logo': 'https://gg-loop-tournament.vercel.app/logo.svg',
+      'founder': {
+        '@type': 'Person',
+        'name': 'Jayson Quindao',
+        'jobTitle': 'Founder & Principal Systems Architect',
+        'email': 'jquindao1@icloud.com',
+        'telephone': '(469) 371-8556',
+        'alumniOf': 'University of Texas at Dallas',
+        'sameAs': [
+          'https://github.com/djjrip',
+          'https://djjrip.github.io',
+          'https://djjrip.github.io/resume.html'
+        ]
+      },
+      'address': {
+        '@type': 'PostalAddress',
+        'addressLocality': 'Grand Prairie',
+        'addressRegion': 'TX',
+        'addressCountry': 'US'
+      }
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://gg-loop-tournament.vercel.app/#software',
+      'name': 'GG Loop Tournament Platform & Anti-Cheat SDK',
+      'applicationCategory': 'GameApplication',
+      'operatingSystem': 'Windows, Web',
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'USD'
+      }
+    }
+  ]
 }
 
 export default function RootLayout({
@@ -19,6 +86,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.className} bg-[#06080d] text-[#f3f4f6] min-h-screen flex flex-col cyber-grid relative overflow-x-hidden selection:bg-[#00ff88] selection:text-black`}>
         <AuthProvider>
           {/* Ambient Top Glow */}
